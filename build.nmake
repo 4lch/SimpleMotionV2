@@ -1,0 +1,3 @@
+CC=cl
+CFLAGS=/LD /02 /I"include"
+LIBS=

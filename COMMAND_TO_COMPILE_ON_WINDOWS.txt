@@ -1,0 +1,6 @@
+cl /LD /I"." simplemotion.c sm_consts.c busdevice.c sm_d2xx.c ftd2xx.lib /Fe:simplemotion.dll /ENTRY:_DllMainCRTStartup
+
+=> Run this in the Visual Studio Developer Command Prompt **usign these files that have been modified to add Windows specific stuff (DLL entry point), change the folder structure and header declarations to reflect those changes, and force the "#define LIB __declspec(dllexport)" statement on simplemotion.h to ignore platform specific stuff.
+
+Verify the exported functions using the following command:
+dumpbin /EXPORTS simplemotion.dll

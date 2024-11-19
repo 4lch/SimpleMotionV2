@@ -9,10 +9,10 @@
 
 #include "sm_d2xx.h"
 #include "simplemotion_private.h" //needed for timeout variable
-#include "drivers/ftdi_d2xx/third_party/ftd2xx.h"
+#include "ftd2xx.h"
 #include "user_options.h"
 #include <string.h>
-#include <simplemotion.h>
+#include "simplemotion.h"
 
 
 static int stringToNumber( const char *str, smbool *ok )

@@ -8,9 +8,26 @@
 #include "user_options.h"
 #include "sm485.h"
 #include <stdarg.h>
-
+#include <windows.h>
 
 #include "simplemotion_private.h"
+
+// Entry point for the DLL
+BOOL APIENTRY DllMain(HINSTANCE hinstDLL, DWORD fdwReason, LPVOID lpReserved) {
+    switch (fdwReason) {
+    case DLL_PROCESS_ATTACH:
+        // Perform actions needed when the DLL is loaded
+        break;
+    case DLL_THREAD_ATTACH:
+    case DLL_THREAD_DETACH:
+        // Perform actions when threads are created or destroyed
+        break;
+    case DLL_PROCESS_DETACH:
+        // Perform cleanup when the DLL is unloaded
+        break;
+    }
+    return TRUE; // Successful initialization
+}
 
 SM_STATUS smParseReturnData( smbus handle, smuint8 data );
 
