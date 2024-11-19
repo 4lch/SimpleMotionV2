@@ -1,9 +1,8 @@
 #include "busdevice.h"
 #include "user_options.h"
 
-#include "drivers/serial/pcserialport.h"
-#include "drivers/tcpip/tcpclient.h"
-#include "drivers/ftdi_d2xx/sm_d2xx.h"
+#include "pcserialport.h"
+#include "sm_d2xx.h"
 
 #include <string.h>
 #include <errno.h>
@@ -61,8 +60,6 @@ smbusdevicehandle smBDOpen( const char *devicename )
 
     //try opening with all drivers:
     h=smBDOpenWithCallbacks( devicename, serialPortOpen, serialPortClose, serialPortRead, serialPortWrite, serialPortMiscOperation );
-    if(h>=0) return h;//was success
-    h=smBDOpenWithCallbacks( devicename, tcpipPortOpen, tcpipPortClose, tcpipPortRead, tcpipPortWrite, tcpipMiscOperation );
     if(h>=0) return h;//was success
 #ifdef FTDI_D2XX_SUPPORT
     h=smBDOpenWithCallbacks( devicename, d2xxPortOpen, d2xxPortClose, d2xxPortRead, d2xxPortWrite, d2xxPortMiscOperation );

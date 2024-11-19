@@ -3,6 +3,9 @@
 #ifndef SM_BUSDEVICE
 #define SM_BUSDEVICE
 
+#define ENABLE_BUILT_IN_DRIVERS
+#define FTDI_D2XX_SUPPORT
+
 #include "simplemotion.h"
 #include "simplemotion_private.h"
 
