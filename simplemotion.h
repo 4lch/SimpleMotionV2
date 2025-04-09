@@ -8,8 +8,9 @@
 #define BUILD_DLL
 #endif
 
+#ifndef LIB
 #define LIB __declspec(dllexport)
-
+#endif
 
 #include <stdio.h>
 #include <stdint.h>

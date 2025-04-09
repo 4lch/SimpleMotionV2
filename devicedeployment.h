@@ -12,16 +12,12 @@
 #ifndef SMDEPLOYMENTTOOL_H
 #define SMDEPLOYMENTTOOL_H
 
-#ifdef WIN32
-//dll specs
-#ifdef BUILD_DLL
-    #define LIB __declspec(dllexport)
-#else
-//    #define LIB __declspec(dllimport)
-#define LIB
+#ifndef BUILD_DLL
+#define BUILD_DLL
 #endif
-#else
-#define LIB
+
+#ifndef LIB
+#define LIB __declspec(dllexport)
 #endif
 
 
